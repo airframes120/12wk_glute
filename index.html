@@ -1,148 +1,883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 1 – Glute Growth (Female Program)</title>
-
-<style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background: #ffe9f3; /* baby pink background */
-        margin: 0;
-        padding: 0;
-        color: #4a4a4a;
+  <meta charset="UTF-8" />
+  <title>Glute Hypertrophy – 12 Week Block</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #1b1016;
+      --bg-soft: #26141f;
+      --border: #ffb6d9;
+      --accent: #ff8ec3;
+      --accent-soft: #ffc4e1;
+      --text-main: #fff7fb;
+      --text-muted: #c78eab;
     }
 
-    .container {
-        max-width: 600px;
-        background: #ffffffd9;
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: radial-gradient(circle at top, #3b1d32 0, #1b1016 40%, #090409 100%);
+      color: var(--text-main);
+    }
+
+    .app {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 0.75rem;
     }
 
     h1 {
-        text-align: center;
-        font-size: 26px;
-        color: #ff73b3;
-        margin-bottom: 10px;
+      font-size: 1.35rem;
+      margin: 0 0 0.2rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      font-weight: 650;
+      text-transform: uppercase;
     }
 
-    h2 {
-        font-size: 18px;
-        color: #ff8cc9;
-        border-left: 5px solid #ff73b3;
-        padding-left: 10px;
-        margin-top: 25px;
+    .subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 8px;
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
+    /* TOP CONTROL BAR */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.9rem 0 0.8rem;
+      align-items: center;
     }
 
-    th, td {
-        padding: 10px;
-        border-bottom: 1px solid #f7dce8;
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
-    th {
-        background: #ffd5e8;
-        color: #4a4a4a;
-        font-weight: bold;
+    label {
+      font-size: 0.8rem;
+      color: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
     }
 
-    tr:last-child td {
-        border-bottom: none;
+    select {
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #130910;
+      color: var(--accent);
+      font-size: 0.85rem;
+      outline: none;
+      appearance: none;
+    }
+
+    select:focus {
+      border-color: var(--accent);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.4rem;
+      margin-left: auto;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #130910;
+      color: var(--accent);
+      font-size: 0.78rem;
+      padding: 0.28rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.05s;
+    }
+
+    .btn:hover {
+      background: #21101b;
+    }
+
+    .btn-ghost {
+      border-color: #6a4c5c;
+      color: var(--text-muted);
+    }
+
+    /* SAVE BUTTON HIGHLIGHT */
+    .btn-save {
+      background: linear-gradient(135deg, #ff8ec3, #ffb6d9);
+      color: #381220;
+      border-color: #ffd1e8;
+      box-shadow: 0 0 12px rgba(255, 182, 217, 0.6);
+      font-weight: 600;
+    }
+
+    .btn-save:hover {
+      filter: brightness(1.05);
+      box-shadow: 0 0 16px rgba(255, 182, 217, 0.9);
+      transform: translateY(-1px);
+    }
+
+    /* BOOKMARK BAR */
+    .bookmark-bar {
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255,182,217,0.7);
+      background: rgba(19, 9, 16, 0.96);
+      padding: 0.5rem 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .bookmark-label {
+      font-size: 0.78rem;
+      color: var(--accent-soft);
+      font-weight: 500;
+    }
+
+    .bookmark-value {
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .bookmark-buttons {
+      display: flex;
+      gap: 0.4rem;
+      margin-left: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,182,217,0.9);
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+      margin-right: 0.2rem;
+      background: rgba(255,142,195,0.05);
+    }
+
+    /* WORKOUT CARD */
+    .card {
+      background: var(--bg-soft);
+      border-radius: 0.9rem;
+      padding: 1rem 1rem 0.8rem;
+      border: 1px solid rgba(255,182,217,0.65);
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+      font-size: 0.98rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+      margin-bottom: 0.55rem;
+    }
+
+    .focus {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .week-tag {
+      font-size: 0.73rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,182,217,0.7);
+      color: var(--accent-soft);
+      margin-left: auto;
+    }
+
+    /* BLOCKS */
+    .block {
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(255, 182, 217, 0.25);
+    }
+
+    .block:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .block-name {
+      font-weight: 600;
+      font-size: 0.86rem;
+      margin-bottom: 0.22rem;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.83rem;
+      color: var(--text-main);
+      list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: 0.16rem;
     }
 
     .footer {
-        text-align: center;
-        font-size: 13px;
-        color: #777;
-        margin-top: 20px;
+      margin-top: 0.9rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
     }
 
-</style>
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-buttons {
+        margin-left: 0;
+      }
+      .bookmark-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .bookmark-buttons {
+        margin-left: 0;
+      }
+      .week-tag {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="app">
+    <header>
+      <h1>Glute Growth · 12-Week Block</h1>
+      <div class="subtitle">
+        3-day glute specialization · Blood flow · Mobility · Priming · CNS · Main Work
+      </div>
+    </header>
 
-<div class="container">
-    
-    <h1>DAY 1 — GLUTE GROWTH<br>(Strength Bias)</h1>
-    <p style="text-align:center; color:#ff73b3; font-weight:bold;">Weeks 1–4</p>
+    <!-- TOP CONTROLS -->
+    <div class="top-bar">
+      <div class="controls">
+        <label>
+          Week
+          <select id="weekSelect">
+            <option value="1">1 (Phase 1 – Base)</option>
+            <option value="2">2 (Phase 1 – Base)</option>
+            <option value="3">3 (Phase 1 – Base)</option>
+            <option value="4">4 (Phase 1 – Base)</option>
+            <option value="5">5 (Phase 2 – Overload)</option>
+            <option value="6">6 (Phase 2 – Overload)</option>
+            <option value="7">7 (Phase 2 – Overload)</option>
+            <option value="8">8 (Phase 2 – Overload)</option>
+            <option value="9">9 (Phase 3 – Volume)</option>
+            <option value="10">10 (Phase 3 – Volume)</option>
+            <option value="11">11 (Phase 3 – Volume)</option>
+            <option value="12">12 (Phase 3 – Volume)</option>
+          </select>
+        </label>
 
-    <!-- BLOOD FLOW -->
-    <h2>Blood Flow – Steady State (3–6 min)</h2>
-    <table>
-        <tr><th>Option</th><th>Notes</th></tr>
-        <tr><td>Incline Walk</td><td>5–8% · 2.8–3.2 mph</td></tr>
-        <tr><td>Stair Climber</td><td>Level 4–6</td></tr>
-        <tr><td>Bike (Glute Bias)</td><td>Light effort</td></tr>
-    </table>
+        <label>
+          Day
+          <select id="daySelect">
+            <option value="1">Day 1</option>
+            <option value="2">Day 2</option>
+            <option value="3">Day 3</option>
+          </select>
+        </label>
+      </div>
 
-    <!-- MOBILITY -->
-    <h2>Mobility (3–5 min)</h2>
-    <table>
-        <tr><th>Drill</th><th>Reps</th></tr>
-        <tr><td>Hip Flexor Stretch + PPT</td><td>20–30s/side</td></tr>
-        <tr><td>90/90 ER Rocks</td><td>8/side</td></tr>
-        <tr><td>T-Spine Rotations</td><td>6/side</td></tr>
-    </table>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="prevDayBtn">‹ Prev</button>
+        <button class="btn" id="nextDayBtn">Next ›</button>
+      </div>
+    </div>
 
-    <!-- PRIMING -->
-    <h2>Glute Priming</h2>
-    <table>
-        <tr><th>Exercise</th><th>Reps</th></tr>
-        <tr><td>Band Lateral Walk</td><td>12/side</td></tr>
-        <tr><td>Banded Kickback</td><td>10/side</td></tr>
-        <tr><td>Banded Hip Hinge</td><td>10 reps</td></tr>
-        <tr><td>IR Lift-Off</td><td>8/side</td></tr>
-    </table>
+    <!-- BOOKMARK BAR -->
+    <div class="bookmark-bar">
+      <div>
+        <div class="bookmark-label">Last bookmarked workout:</div>
+        <div class="bookmark-value" id="bookmarkDisplay">
+          None saved yet
+        </div>
+      </div>
+      <div class="bookmark-buttons">
+        <button class="btn btn-save" id="saveBookmarkBtn">💾 Save current workout</button>
+        <button class="btn btn-ghost" id="gotoBookmarkBtn">Go to last</button>
+      </div>
+    </div>
 
-    <!-- CNS -->
-    <h2>CNS Primer A</h2>
-    <table>
-        <tr><th>Exercise</th><th>Sets/Reps</th></tr>
-        <tr><td>Med Ball Hip-Heave Toss</td><td>3×3</td></tr>
-        <tr><td>Kettlebell Power Swings</td><td>2×5</td></tr>
-        <tr><td>Explosive Band Hip Thrust</td><td>2×3</td></tr>
-    </table>
+    <!-- WORKOUT CARD -->
+    <div class="card" id="workoutCard">
+      Loading…
+    </div>
 
-    <!-- MAIN WORK -->
-    <h2>Main Lifts</h2>
-    <table>
-        <tr><th>Exercise</th><th>Sets</th><th>Reps</th></tr>
-        <tr><td>Barbell Hip Thrust</td><td>4</td><td>8</td></tr>
-        <tr><td>Bulgarian Split Squat</td><td>3</td><td>10/side</td></tr>
-        <tr><td>45° Glute Back Extension</td><td>3</td><td>12</td></tr>
-    </table>
+    <div class="footer">
+      Last bookmarked week/day is stored locally on this device (via localStorage). Clearing browser data will reset it.
+    </div>
+  </div>
 
-    <!-- ACCESSORIES -->
-    <h2>Accessory</h2>
-    <table>
-        <tr><th>Exercise</th><th>Reps</th></tr>
-        <tr><td>Cable Kickback</td><td>3×15/side</td></tr>
-        <tr><td>Hip Abduction Machine</td><td>3×20</td></tr>
-    </table>
+  <script>
+    // -------------------------
+    // SIMPLE BOOKMARK STORAGE
+    // -------------------------
+    const BOOKMARK_KEY = "gluteProgramLastWorkout";
 
-    <!-- FINISHER -->
-    <h2>Finisher</h2>
-    <table>
-        <tr><th>Exercise</th><th>Reps</th></tr>
-        <tr><td>Frog Pumps</td><td>2×30</td></tr>
-    </table>
+    function saveBookmark() {
+      const week = parseInt(weekSelect.value, 10);
+      const day = parseInt(daySelect.value, 10);
+      const data = { week, day };
+      localStorage.setItem(BOOKMARK_KEY, JSON.stringify(data));
+      updateBookmarkDisplay();
+    }
 
-    <p class="footer">Powered by BMP Method · Glute Growth System</p>
+    function getBookmark() {
+      try {
+        const raw = localStorage.getItem(BOOKMARK_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (e) {
+        return null;
+      }
+    }
 
-</div>
+    function updateBookmarkDisplay() {
+      const bm = getBookmark();
+      if (!bm) {
+        bookmarkDisplay.textContent = "None saved yet";
+      } else {
+        bookmarkDisplay.innerHTML = `
+          <span class="badge">Week ${bm.week}</span>
+          <span class="badge">Day ${bm.day}</span>
+        `;
+      }
+    }
 
+    function gotoBookmark() {
+      const bm = getBookmark();
+      if (!bm) return;
+      weekSelect.value = String(bm.week);
+      daySelect.value = String(bm.day);
+      renderWorkout();
+    }
+
+    // -------------------------
+    // PROGRAM DATA – GLUTE CONTENT
+    // Phases: 1 (Weeks 1–4), 2 (5–8), 3 (9–12)
+    // -------------------------
+
+    const gluteProgram = {
+      1: { // Phase 1 – Foundation & Neural Drive
+        1: {
+          title: "Day 1 – Strength Bias · Foundation",
+          focus: "SSC · mobility · priming · CNS · heavy hip thrust",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State (3–6 min)",
+              items: [
+                "Incline walk 3–6 min @ 5–8% · 2.8–3.2 mph",
+                "or Stair climber 3–5 min @ level 4–6",
+                "or Bike (glute bias) 3–5 min · easy HR 120–135"
+              ]
+            },
+            {
+              name: "Mobility (3–5 min)",
+              items: [
+                "Half-kneeling hip flexor stretch + posterior pelvic tilt · 20–30s/side",
+                "90/90 hip ER rocks · 8/side",
+                "T-spine rotations · 6/side"
+              ]
+            },
+            {
+              name: "Glute Priming",
+              items: [
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 10/side",
+                "Banded hip hinge pattern · 10 reps",
+                "IR lift-off · 8/side"
+              ]
+            },
+            {
+              name: "CNS Primer A – Explosive",
+              items: [
+                "Med ball hip-heave toss · 3×3",
+                "Kettlebell power swings · 2×5 (explosive, not conditioning)",
+                "Explosive band hip thrust · 2×3"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell hip thrust · 4×8 · RIR 3",
+                "Bulgarian split squat · 3×10/side · long stride",
+                "45° glute back extension · 3×12 · glute bias"
+              ]
+            },
+            {
+              name: "Accessory",
+              items: [
+                "Cable kickback · 3×15/side",
+                "Hip abduction machine · 3×20"
+              ]
+            },
+            {
+              name: "Finisher",
+              items: [
+                "Frog pumps · 2×30 (constant tension)"
+              ]
+            }
+          ]
+        },
+        2: {
+          title: "Day 2 – Lengthened Range · Stability",
+          focus: "Glute in lengthened position · no CNS · stability focus",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State (3–6 min)",
+              items: [
+                "Incline walk / stairs / bike · same as Day 1"
+              ]
+            },
+            {
+              name: "Mobility (3–5 min)",
+              items: [
+                "Hip flexor stretch + PPT · 20–30s/side",
+                "90/90 hip ER rocks · 8/side",
+                "T-spine rotations · 6/side"
+              ]
+            },
+            {
+              name: "Glute Priming",
+              items: [
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 10/side",
+                "Banded hip hinge · 10 reps"
+              ]
+            },
+            {
+              name: "Stability Activation (No CNS)",
+              items: [
+                "Dead bug with band tension · 2×10",
+                "Side plank with hip lift · 2×8/side"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "DB RDL · 4×10",
+                "Deficit reverse lunge · 3×10/side",
+                "Cable abduction · 3×12/side",
+                "Paused glute bridge · 3×15"
+              ]
+            },
+            {
+              name: "Accessory",
+              items: [
+                "Step-up (glute drive) · 2×12/side"
+              ]
+            }
+          ]
+        },
+        3: {
+          title: "Day 3 – High-Volume Pump",
+          focus: "CNS + high volume bridge + abduction pump",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State (3–6 min)",
+              items: [
+                "Incline walk / stairs / bike · same as Day 1"
+              ]
+            },
+            {
+              name: "Mobility (3–5 min)",
+              items: [
+                "Hip flexor stretch + PPT · 20–30s/side",
+                "90/90 hip ER rocks · 8/side"
+              ]
+            },
+            {
+              name: "Glute Priming",
+              items: [
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 10/side"
+              ]
+            },
+            {
+              name: "CNS Primer B – Sprint/Bound",
+              items: [
+                "A-skips · 20 m",
+                "Bound-to-stick · 2×2/side",
+                "Dynamic band hip thrust · 2×3"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell glute bridge · 5×12",
+                "Hip abduction machine · 4×25",
+                "Kickstand RDL · 3×12/side",
+                "Frog pumps · 3×30"
+              ]
+            }
+          ]
+        }
+      },
+
+      2: { // Phase 2 – Mechanical Overload (Weeks 5–8)
+        1: {
+          title: "Day 1 – Heavy Thrust · Overload",
+          focus: "Heavier thrusts · progressive load",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility",
+              items: [
+                "Hip flexor stretch + PPT · 20–30s/side",
+                "90/90 hip ER rocks · 8/side"
+              ]
+            },
+            {
+              name: "Glute Priming",
+              items: [
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 10/side"
+              ]
+            },
+            {
+              name: "CNS Primer A – Explosive",
+              items: [
+                "Med ball hip-heave toss · 3×3",
+                "Kettlebell power swings · 2×5",
+                "Explosive band hip thrust · 2×3"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell hip thrust · 5×6 · heavier each week",
+                "Front-foot elevated split squat · 4×8/side",
+                "Barbell RDL · 3×8"
+              ]
+            },
+            {
+              name: "Accessory",
+              items: [
+                "Hip abduction machine · 4×20",
+                "Cable glute extension · 3×12"
+              ]
+            }
+          ]
+        },
+        2: {
+          title: "Day 2 – Lengthened Load · Overload",
+          focus: "Heavy RDL · walking lunge · hamstrings & glutes",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility & Stability",
+              items: [
+                "Hip flexor stretch + PPT · 20–30s/side",
+                "90/90 hip ER rocks · 8/side",
+                "Side plank hip abduction · 2×12/side",
+                "Banded hip airplane · 2×6/side"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Heavy RDL · 4×6",
+                "Long-stride walking lunge · 3×12/side",
+                "Smith machine step-down · 3×10/side"
+              ]
+            },
+            {
+              name: "Accessory",
+              items: [
+                "Cable kickback · 3×15",
+                "Reverse hyper · 3×15"
+              ]
+            }
+          ]
+        },
+        3: {
+          title: "Day 3 – Volume Accumulation",
+          focus: "High volume bridges · banded thrust pump",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hip flexor stretch · 20–30s/side",
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 10/side"
+              ]
+            },
+            {
+              name: "CNS Primer B – Sprint/Bound",
+              items: [
+                "A-skips · 20 m",
+                "Bound-to-stick · 2×2/side",
+                "Dynamic hip thrust · 2×3"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell glute bridge · 6×10",
+                "Banded hip thrust · 3×20",
+                "Hip abduction machine · 5×20",
+                "Frog pumps · 2×40"
+              ]
+            }
+          ]
+        }
+      },
+
+      3: { // Phase 3 – Metabolic Stress / Overreach (Weeks 9–12)
+        1: {
+          title: "Day 1 – Strength + Power · Overreach",
+          focus: "Heavy thrust + AMRAP · high stress glutes",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hip flexor stretch + PPT · 20–30s/side",
+                "90/90 hip ER rocks · 8/side",
+                "Mini-band lateral walk · 12/side"
+              ]
+            },
+            {
+              name: "Short CNS Primer A",
+              items: [
+                "Med ball hip-heave toss · 2×3",
+                "Kettlebell power swings · 1–2×5"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell hip thrust · 4×5 + 1 AMRAP set",
+                "Bulgarian split squat · 4×12",
+                "RDL · 3×10"
+              ]
+            },
+            {
+              name: "Accessory + Finisher",
+              items: [
+                "Cable abduction · 3×20",
+                "Glute bridge ISO hold · 1×60s"
+              ]
+            }
+          ]
+        },
+        2: {
+          title: "Day 2 – Lengthened + Control",
+          focus: "Lengthened glute work · controlled tempo",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hip flexor stretch · 20–30s/side",
+                "90/90 hip ER rocks · 8/side",
+                "Side plank hip lift · 2×10/side"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "45° hip extension (glute bias) · 4×15",
+                "DB RDL (4-sec eccentric) · 3×12",
+                "Lateral step-up · 3×12/side",
+                "Cable kickback · 3×20",
+                "Reverse hyper · 3×20"
+              ]
+            }
+          ]
+        },
+        3: {
+          title: "Day 3 – High-Volume Pump · Overreach",
+          focus: "Bridge volume · abduction density · glute med finisher",
+          blocks: [
+            {
+              name: "Blood Flow – Steady State",
+              items: [
+                "Incline walk / stairs / bike · 3–6 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hip flexor stretch · 20–30s/side",
+                "Mini-band lateral walk · 12/side"
+              ]
+            },
+            {
+              name: "Short CNS Primer B",
+              items: [
+                "A-skips · 20 m",
+                "Bounds · 2×2/side"
+              ]
+            },
+            {
+              name: "Main Lifts",
+              items: [
+                "Barbell glute bridge · 8×12 (45–60s rest)",
+                "Hip abduction machine · 4×30",
+                "Cable RDL (constant tension) · 3×15"
+              ]
+            },
+            {
+              name: "Glute Med Finisher",
+              items: [
+                "Side-lying hip raise · 2×20/side",
+                "Standing band abduction · 2×20"
+              ]
+            }
+          ]
+        }
+      }
+    };
+
+    function getPhaseForWeek(week) {
+      if (week >= 1 && week <= 4) return 1;
+      if (week >= 5 && week <= 8) return 2;
+      return 3; // 9–12
+    }
+
+    // -------------------------
+    // RENDER LOGIC
+    // -------------------------
+
+    const weekSelect = document.getElementById("weekSelect");
+    const daySelect = document.getElementById("daySelect");
+    const workoutCard = document.getElementById("workoutCard");
+
+    const prevDayBtn = document.getElementById("prevDayBtn");
+    const nextDayBtn = document.getElementById("nextDayBtn");
+
+    const saveBookmarkBtn = document.getElementById("saveBookmarkBtn");
+    const gotoBookmarkBtn = document.getElementById("gotoBookmarkBtn");
+    const bookmarkDisplay = document.getElementById("bookmarkDisplay");
+
+    function renderWorkout() {
+      const week = parseInt(weekSelect.value, 10);
+      const day = parseInt(daySelect.value, 10);
+
+      const phase = getPhaseForWeek(week);
+      const phaseData = gluteProgram[phase];
+      if (!phaseData || !phaseData[day]) {
+        workoutCard.innerHTML = "<div>Workout not defined for this day.</div>";
+        return;
+      }
+
+      const data = phaseData[day];
+      let html = "";
+
+      html += `<div class="title">${data.title}</div>`;
+      html += `<div class="meta-row">`;
+      html += `<div class="focus">${data.focus}</div>`;
+      html += `<div class="week-tag">Week ${week} · Day ${day} · Phase ${phase}</div>`;
+      html += `</div>`;
+
+      data.blocks.forEach(block => {
+        html += `<div class="block">`;
+        html += `<div class="block-name">${block.name}</div>`;
+        html += `<ul>`;
+        block.items.forEach(item => {
+          html += `<li>${item}</li>`;
+        });
+        html += `</ul></div>`;
+      });
+
+      workoutCard.innerHTML = html;
+    }
+
+    function changeDay(delta) {
+      let week = parseInt(weekSelect.value, 10);
+      let day = parseInt(daySelect.value, 10);
+
+      day += delta;
+
+      if (day < 1) {
+        if (week > 1) {
+          week -= 1;
+          day = 3;
+        } else {
+          day = 1;
+        }
+      } else if (day > 3) {
+        if (week < 12) {
+          week += 1;
+          day = 1;
+        } else {
+          day = 3;
+        }
+      }
+
+      weekSelect.value = String(week);
+      daySelect.value = String(day);
+      renderWorkout();
+    }
+
+    // EVENT LISTENERS
+    weekSelect.addEventListener("change", renderWorkout);
+    daySelect.addEventListener("change", renderWorkout);
+
+    prevDayBtn.addEventListener("click", () => changeDay(-1));
+    nextDayBtn.addEventListener("click", () => changeDay(1));
+
+    saveBookmarkBtn.addEventListener("click", saveBookmark);
+    gotoBookmarkBtn.addEventListener("click", gotoBookmark);
+
+    // INIT
+    updateBookmarkDisplay();
+    renderWorkout();
+  </script>
 </body>
 </html>
