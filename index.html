@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Glute Growth – 12 Week HIT Block</title>
+  <title>Glute Growth – 12 Week Hypertrophy Block</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -78,7 +78,7 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       background: #130910;
-      color: var(--accent);
+      color: #ffcee6;
       font-size: 0.85rem;
       outline: none;
       appearance: none;
@@ -269,9 +269,9 @@
 <body>
   <div class="app">
     <header>
-      <h1>Glute Growth · 12-Week HIT Block</h1>
+      <h1>Glute Growth · 12-Week Hypertrophy Block</h1>
       <div class="subtitle">
-        3-day glute specialization · Arthur Jones style · 1 working set to failure
+        3-day glute specialization · lengthened + shortened overload · main lifts 12–15 reps
       </div>
     </header>
 
@@ -281,10 +281,10 @@
         <label>
           Week
           <select id="weekSelect">
-            <option value="1">1 (Phase 1 – Base HIT)</option>
-            <option value="2">2 (Phase 1 – Base HIT)</option>
-            <option value="3">3 (Phase 1 – Base HIT)</option>
-            <option value="4">4 (Phase 1 – Base HIT)</option>
+            <option value="1">1 (Phase 1 – Base)</option>
+            <option value="2">2 (Phase 1 – Base)</option>
+            <option value="3">3 (Phase 1 – Base)</option>
+            <option value="4">4 (Phase 1 – Base)</option>
             <option value="5">5 (Phase 2 – Overload)</option>
             <option value="6">6 (Phase 2 – Overload)</option>
             <option value="7">7 (Phase 2 – Overload)</option>
@@ -340,7 +340,7 @@
     // -------------------------
     // BOOKMARK STORAGE
     // -------------------------
-    const BOOKMARK_KEY = "gluteHITProgramLastWorkout";
+    const BOOKMARK_KEY = "gluteHypertrophyProgramLastWorkout";
 
     function saveBookmark() {
       const week = parseInt(weekSelect.value, 10);
@@ -381,20 +381,20 @@
     }
 
     // -------------------------
-    // PROGRAM DATA – ARTHUR JONES GLUTE HIT
+    // PROGRAM DATA – 12–15 REP MAIN LIFTS, EVIDENCE-BASED
     // 3 phases mapped by week
     // -------------------------
 
     const gluteProgram = {
-      1: { // PHASE 1 – WEEKS 1–4 (Base HIT, learning failure, technique)
+      1: { // PHASE 1 – WEEKS 1–4 (Base hypertrophy, main lifts 3×12–15)
         1: {
-          title: "Day 1 – Squat & Unilateral HIT",
-          focus: "Pre-exhaust glutes · back squat · Bulgarian split squat",
+          title: "Day 1 – Hip Thrust + Squat (Base)",
+          focus: "Shortened overload + mid-range compound · 12–15 reps on main lifts",
           blocks: [
             {
-              name: "Blood Flow – Steady State (3–5 min)",
+              name: "Blood Flow (3–5 min)",
               items: [
-                "Light incline walk / stairs / bike · easy pace · RPE 3–4"
+                "Light incline walk / bike / stairs · RPE 3–4"
               ]
             },
             {
@@ -403,195 +403,239 @@
                 "Hip flexor stretch + posterior pelvic tilt · 20–30s/side",
                 "90/90 hip ER rocks · 8/side",
                 "Mini-band lateral walk · 12/side",
-                "Mini-band kickback · 10/side"
+                "Mini-band kickback · 12/side"
               ]
             },
             {
-              name: "Pre-Exhaust Isolation (1 working set to failure)",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "Hip abduction machine · 1 warm-up set + 1×15–20 to failure",
-                "Cable kickback · 1 warm-up set + 1×15–20/side to failure"
+                "Hip thrust (barbell or machine) · 3×12–15 · 1–2 reps in reserve",
+                "Back squat · 3×12–15 · moderate load, full depth"
               ]
             },
             {
-              name: "Main Compounds (1 working set to failure each)",
+              name: "Unilateral / Mid-Range",
               items: [
-                "Back squat · 1–2 warm-up sets + 1×8–12 to controlled failure (no spotter needed)",
-                "Bulgarian split squat · 1 warm-up + 1×8–12/side to failure (use DBs or bodyweight as needed)"
+                "Bulgarian split squat · 3×12–15/side · torso leaned slightly forward"
               ]
             },
             {
-              name: "Finisher (Optional if gas left)",
+              name: "Shortened Overload / Pump",
               items: [
-                "Frog pumps · 1×30–40 nonstop",
-                "If fully gassed: skip finisher and walk to cool down"
+                "Cable kickback · 2×15–20/side",
+                "Hip abduction machine · 2×20–25"
               ]
             }
           ]
         },
         2: {
-          title: "Day 2 – Hinge & Hack HIT",
-          focus: "Pre-exhaust · RDL · hack squat glute stance",
+          title: "Day 2 – RDL + Lunge (Base)",
+          focus: "Lengthened overload focus · 12–15 reps on main lifts",
           blocks: [
             {
-              name: "Blood Flow – Steady State (3–5 min)",
+              name: "Blood Flow (3–5 min)",
               items: [
-                "Bike or incline walk · easy pace · RPE 3–4"
+                "Incline walk or easy jog · RPE 3–4"
               ]
             },
             {
               name: "Mobility + Priming",
               items: [
+                "Hamstring walkouts or toe touches · 8–10 reps",
                 "Hip flexor stretch · 20–30s/side",
-                "Hamstring walkouts or toe reaches · 8–10 reps",
-                "Banded hip hinge · 10 reps"
+                "Banded hip hinge pattern · 10–12 reps"
               ]
             },
             {
-              name: "Pre-Exhaust Isolation",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "45° back extension (glute bias) · 1 warm-up + 1×15–20 to failure",
-                "Seated hip abduction · 1×20 to failure"
+                "Romanian deadlift (RDL) · 3×12–15 · deep stretch, slow eccentric",
+                "Long-stride walking lunge (glute bias) · 3×12–15/side"
               ]
             },
             {
-              name: "Main Compounds",
+              name: "Unilateral / Step Work",
               items: [
-                "Romanian deadlift (RDL) · 1–2 warm-up sets + 1×8–12 to failure (3–4s eccentric)",
-                "Hack squat (feet higher, glute stance) · 1 warm-up + 1×8–12 to failure"
+                "Step-up (glute drive) · 2×12–15/side · drive through heel, control down"
               ]
             },
             {
-              name: "Optional Glute Pump",
+              name: "Shortened Overload",
               items: [
-                "Glute bridge (bodyweight or light load) · 1×20–30 to burn"
+                "Glute bridge (bodyweight or light load) · 2×20",
+                "Optional: banded abduction · 1–2×20–25"
               ]
             }
           ]
         },
         3: {
-          title: "Day 3 – Bridge & Volume HIT",
-          focus: "Heavy hip thrust/bridge · low volume · max tension",
+          title: "Day 3 – Hack Squat + Bridge (Base)",
+          focus: "Hack squat glute stance + bridge volume · 12–15 rep range",
           blocks: [
             {
-              name: "Blood Flow – Steady State",
+              name: "Blood Flow",
               items: [
-                "Light jog / bike / incline walk · 3–5 min"
+                "Bike or elliptical · 3–5 min · easy"
               ]
             },
             {
               name: "Mobility + Priming",
               items: [
                 "Hip flexor stretch · 20–30s/side",
+                "90/90 ER rocks · 8/side",
+                "Mini-band lateral walk · 10–12/side"
+              ]
+            },
+            {
+              name: "Main Lifts (12–15 reps)",
+              items: [
+                "Hack squat (feet higher, glute stance) · 3×12–15",
+                "Barbell or machine glute bridge · 3×12–15"
+              ]
+            },
+            {
+              name: "Unilateral / Hinge",
+              items: [
+                "Kickstand RDL · 2×12–15/side"
+              ]
+            },
+            {
+              name: "Pump / Shortened Overload",
+              items: [
+                "Hip abduction machine · 2–3×20",
+                "Frog pumps · 1–2×25–30"
+              ]
+            }
+          ]
+        }
+      },
+
+      2: { // PHASE 2 – WEEKS 5–8 (Overload: same reps, slightly heavier, more total sets)
+        1: {
+          title: "Day 1 – Hip Thrust + Back Squat (Overload)",
+          focus: "Heavier loads within 12–15 reps · increased total sets",
+          blocks: [
+            {
+              name: "Blood Flow",
+              items: [
+                "Incline walk / bike · 3–5 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hip flexor stretch · 20–30s/side",
+                "90/90 ER rocks · 8/side",
                 "Mini-band lateral walk · 12/side",
-                "Mini-band kickback · 10/side"
+                "Mini-band kickback · 12/side"
               ]
             },
             {
-              name: "Pre-Exhaust",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "Hip abduction machine · 1×15–20 to failure"
+                "Hip thrust · 4×12–15 · aim to add load from Phase 1",
+                "Back squat · 3–4×12–15 · controlled tempo"
               ]
             },
             {
-              name: "Main Compounds",
+              name: "Unilateral",
               items: [
-                "Hip thrust (barbell or machine) · 1–2 warm-ups + 1×8–12 to failure + 3–5 partials at top",
-                "Back squat (lighter than Day 1) · 1×10–15 to deep controlled fatigue"
+                "Bulgarian split squat · 3×12–15/side"
               ]
             },
             {
-              name: "Finisher",
+              name: "Shortened Overload",
               items: [
-                "Standing band abductions · 1×20/side",
-                "Walk and breathe 3–5 min to cool down"
+                "Cable kickback · 2×15–20/side",
+                "Hip abduction machine · 2–3×20"
               ]
             }
           ]
-        }
-      },
-
-      2: { // PHASE 2 – WEEKS 5–8 (Overload: heavier loads, slightly lower reps)
-        1: {
-          title: "Day 1 – Heavy Squat & Split Squat HIT",
-          focus: "Back squat and Bulgarian split squat heavier, 6–9 reps",
+        },
+        2: {
+          title: "Day 2 – RDL + Lunge (Overload)",
+          focus: "Lengthened overload progression · same 12–15 rep range",
           blocks: [
             {
               name: "Blood Flow",
               items: [
-                "Incline walk / bike · 3–5 min · RPE 3–4"
+                "Easy jog / incline walk · 3–5 min"
+              ]
+            },
+            {
+              name: "Mobility + Priming",
+              items: [
+                "Hamstring walkouts · 8–10 reps",
+                "Hip flexor stretch · 20–30s/side",
+                "Banded hip hinge · 10–12 reps"
+              ]
+            },
+            {
+              name: "Main Lifts (12–15 reps)",
+              items: [
+                "RDL · 4×12–15 · progress load week to week",
+                "Long-stride walking lunge · 3×12–15/side"
+              ]
+            },
+            {
+              name: "Unilateral / Step",
+              items: [
+                "Lateral step-up · 2×12–15/side"
+              ]
+            },
+            {
+              name: "Shortened Overload",
+              items: [
+                "Glute bridge or cable pull-through · 2×15–20"
+              ]
+            }
+          ]
+        },
+        3: {
+          title: "Day 3 – Hack Squat + Bridge (Overload)",
+          focus: "Hack squat & bridge as main mechanical drivers",
+          blocks: [
+            {
+              name: "Blood Flow",
+              items: [
+                "Bike / stairmill · 3–5 min"
               ]
             },
             {
               name: "Mobility + Priming",
               items: [
                 "Hip flexor stretch · 20–30s/side",
-                "90/90 ER rocks · 8/side",
-                "Mini-band lateral walk · 10/side"
+                "Mini-band lateral walk · 12/side"
               ]
             },
             {
-              name: "Pre-Exhaust Isolation",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "Hip abduction machine · 1 warm-up + 1×15–20 to failure"
+                "Hack squat · 4×12–15",
+                "Barbell or machine glute bridge · 3–4×12–15"
               ]
             },
             {
-              name: "Main Compounds",
+              name: "Unilateral / Hinge",
               items: [
-                "Back squat · 1–2 warm-ups + 1×6–9 to hard technical failure",
-                "Bulgarian split squat · 1 warm-up + 1×8–10/side to failure"
+                "Kickstand RDL or single-leg RDL · 2×12–15/side"
               ]
             },
             {
-              name: "Optional Accessory",
+              name: "Pump Work",
               items: [
-                "Leg press (glute stance) · 1×10–15 to failure OR skip if crushed"
+                "Hip abduction machine · 3×20",
+                "Frog pumps · 1–2×30"
               ]
             }
           ]
-        },
-        2: {
-          title: "Day 2 – RDL & Hack Squat Overload",
-          focus: "RDL and hack squat as main heavy drivers",
-          blocks: [
-            {
-              name: "Blood Flow",
-              items: [
-                "Bike or rower · 3–5 min · easy"
-              ]
-            },
-            {
-              name: "Mobility + Priming",
-              items: [
-                "Hamstring stretch / walkouts · 8–10 reps",
-                "Banded hip hinge · 10 reps"
-              ]
-            },
-            {
-              name: "Pre-Exhaust",
-              items: [
-                "45° back extension (glute bias) · 1×15–20 to failure"
-              ]
-            },
-            {
-              name: "Main Compounds",
-              items: [
-                "RDL · 1–2 warm-ups + 1×6–9 to failure (slow eccentric)",
-                "Hack squat · 1 warm-up + 1×8–10 to failure"
-              ]
-            },
-            {
-              name: "Optional Single-Leg",
-              items: [
-                "Walking lunge (long stride) · 1×10–12/side to deep fatigue or skip if CNS/legs toast"
-              ]
-            }
-          ]
-        },
-        3: {
-          title: "Day 3 – Hip Thrust & Back Squat Pump",
-          focus: "Thrust as main driver · squat pump set",
+        }
+      },
+
+      3: { // PHASE 3 – WEEKS 9–12 (Intensification: same reps, more density, slight tempo focus)
+        1: {
+          title: "Day 1 – Hip Thrust + Squat (Intensification)",
+          focus: "Same 12–15 rep range · shorter rest · tempo emphasis",
           blocks: [
             {
               name: "Blood Flow",
@@ -603,147 +647,108 @@
               name: "Mobility + Priming",
               items: [
                 "Hip flexor stretch · 20–30s/side",
-                "Mini-band lateral walk · 10/side",
-                "Mini-band kickback · 10/side"
-              ]
-            },
-            {
-              name: "Pre-Exhaust",
-              items: [
-                "Hip abduction machine · 1×15–20 to failure"
-              ]
-            },
-            {
-              name: "Main Compounds",
-              items: [
-                "Hip thrust · 1–2 warm-ups + 1×6–9 to failure + 3–5 partials",
-                "Back squat (pump) · 1×10–15 at ~70% of Day 1 load to deep burn"
-              ]
-            },
-            {
-              name: "Optional Finisher",
-              items: [
-                "Frog pumps · 1×40–50 nonstop"
-              ]
-            }
-          ]
-        }
-      },
-
-      3: { // PHASE 3 – WEEKS 9–12 (Intensification: advanced HIT – slower eccentrics, rest-pause)
-        1: {
-          title: "Day 1 – Advanced Squat HIT (Rest-Pause)",
-          focus: "Back squat with HIT techniques · maintain safety",
-          blocks: [
-            {
-              name: "Blood Flow",
-              items: [
-                "Light SSC (walk / bike) · 3–5 min"
-              ]
-            },
-            {
-              name: "Mobility + Priming",
-              items: [
-                "Hip flexor stretch · 20–30s/side",
                 "90/90 ER rocks · 8/side",
-                "Mini-band lateral walk · 10/side"
+                "Mini-band lateral walk · 12/side",
+                "Mini-band kickback · 12/side"
               ]
             },
             {
-              name: "Pre-Exhaust",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "Hip abduction machine · 1×15–20 to failure"
+                "Hip thrust · 4×12–15 · 2–3s eccentric, hard squeeze at top",
+                "Back squat · 3–4×12–15 · controlled tempo, 60–90s rest"
               ]
             },
             {
-              name: "Main Compounds (HIT style)",
+              name: "Unilateral",
               items: [
-                "Back squat · 1–2 warm-ups + 1×6–9 to failure, then 10–15s rest, then 2–3 extra reps (rest-pause)",
-                "Bulgarian split squat · 1×8–10/side to failure with 3–4s eccentric"
+                "Bulgarian split squat · 3×12–15/side · last set close to failure"
               ]
             },
             {
-              name: "Optional Finisher",
+              name: "Shortened Overload",
               items: [
-                "Bodyweight walking lunge · 1×20 total steps (slow) if you still have control"
+                "Cable kickback · 2×15–20/side",
+                "Hip abduction machine · 2–3×20–25"
               ]
             }
           ]
         },
         2: {
-          title: "Day 2 – Advanced Hinge & Hack HIT",
-          focus: "RDL & hack squat with slow tempo",
+          title: "Day 2 – RDL + Lunge (Intensification)",
+          focus: "Lengthened + unilateral with density focus",
           blocks: [
             {
               name: "Blood Flow",
               items: [
-                "Bike / rower · 3–5 min"
+                "Easy jog / bike · 3–5 min"
               ]
             },
             {
               name: "Mobility + Priming",
               items: [
-                "Hamstring stretch / walkouts · 8–10 reps",
-                "Banded hip hinge · 10 reps"
+                "Hamstring walkouts · 8–10",
+                "Hip flexor stretch · 20–30s/side",
+                "Banded hip hinge · 10–12"
               ]
             },
             {
-              name: "Pre-Exhaust",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "45° back extension (glute bias) · 1×15–20 to failure"
+                "RDL · 4×12–15 · slow stretch, 60–90s rest",
+                "Long-stride walking lunge · 3×12–15/side"
               ]
             },
             {
-              name: "Main Compounds (Slow Tempo)",
+              name: "Unilateral / Step",
               items: [
-                "RDL · 1–2 warm-ups + 1×6–9 to failure with 3–4s eccentric each rep",
-                "Hack squat · 1×8–10 to failure with 2–3s eccentric and no lockout at top"
+                "Step-up or lateral step-up · 2×12–15/side"
               ]
             },
             {
-              name: "Optional Isolation",
+              name: "Shortened Overload",
               items: [
-                "Cable kickback · 1×20/side to burn if still safe"
+                "Glute bridge · 2×15–20",
+                "Optional band abduction · 1×25–30"
               ]
             }
           ]
         },
         3: {
-          title: "Day 3 – Hip Thrust Peak HIT",
-          focus: "Single all-out thrust set + high-rep pump",
+          title: "Day 3 – Hack Squat + Bridge (Intensification)",
+          focus: "High-tension sets · same 12–15 reps · glute pump finisher",
           blocks: [
             {
               name: "Blood Flow",
               items: [
-                "Incline walk / bike · 3–5 min"
+                "Bike / stairmill · 3–5 min"
               ]
             },
             {
               name: "Mobility + Priming",
               items: [
                 "Hip flexor stretch · 20–30s/side",
-                "Mini-band lateral walk · 10/side",
-                "Mini-band kickback · 10/side"
+                "Mini-band lateral walk · 12/side"
               ]
             },
             {
-              name: "Pre-Exhaust",
+              name: "Main Lifts (12–15 reps)",
               items: [
-                "Hip abduction machine · 1×15–20 to failure"
+                "Hack squat · 4×12–15 · focus on tension, not speed",
+                "Glute bridge · 3–4×12–15"
               ]
             },
             {
-              name: "Main Compounds",
+              name: "Unilateral / Hinge",
               items: [
-                "Hip thrust · 1–2 warm-ups + 1×6–9 to failure, 3–5 partials, then 10–15s hold at top",
-                "Back squat (very light) · 1×15–20 focusing on blood flow, not load"
+                "Kickstand or single-leg RDL · 2×12–15/side"
               ]
             },
             {
-              name: "Final Pump",
+              name: "Pump / Finisher",
               items: [
-                "Frog pumps · 1×50",
-                "Standing band abduction · 1×30/side"
+                "Hip abduction machine · 3×20–25",
+                "Frog pumps · 1–2×30–40"
               ]
             }
           ]
